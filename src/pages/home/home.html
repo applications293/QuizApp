@@ -1,14 +1,246 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+  <ion-navbar color="primary">
+    <ion-title text-center>
+      Quiz App
     </ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="Trivia">
+      <ion-segment-button value="WC">
+        World Cup Quiz
+      </ion-segment-button>
+      <ion-segment-button value="PC">
+        Computer Quiz
+      </ion-segment-button>
+      <ion-segment-button value="Math">
+        Math Quiz
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div *ngIf= "main==1">
+    <div [ngSwitch]="Trivia">
+      <ion-list *ngSwitchCase="'WC'">
+          <ion-list radio-group [(ngModel)]="wc98">
+              <b>1.</b><u>Which country won world cup in <span><b>1998</b></span>?</u> 
+              <ion-item>
+                <ion-label>Italy</ion-label>
+                <ion-radio (click)="_wc98('userAnswers')" value="Italy"></ion-radio>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label>England</ion-label>
+                <ion-radio (click)="_wc98('userAnswers')" value="England" ></ion-radio>
+              </ion-item>
+      
+              <ion-item>
+                <ion-label>France</ion-label>
+                <ion-radio (click)="_wc98('userAnswers')" value="France"></ion-radio>
+              </ion-item>
+            </ion-list>
+          
+            <!--===================================-->
+            <ion-list radio-group [(ngModel)]="wc14">
+              <b>2.</b><u>Which country hosted world cup in <span><b>2014</b></span>?</u>
+            <ion-item>
+              <ion-label>Germany</ion-label>
+              <ion-radio (click)="_wc14('userAnswers')" value="Germany"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>Brazil</ion-label>
+              <ion-radio (click)="_wc14('userAnswers')" value="Brazil"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>South Africa</ion-label>
+              <ion-radio (click)="_wc14('userAnswers')" value="South Africa"></ion-radio>
+            </ion-item>
+          </ion-list>
+          <!--================================================================-->
+          <ion-list radio-group [(ngModel)]="wc10">
+            <b>3.</b><u>Who scored the winning goal in <span><b>2010</b></span> world cup final?</u>
+          <ion-item>
+            <ion-label>Mario Gotze</ion-label>
+            <ion-radio (click)="_wc10('userAnswers')" value="Mario Gotze"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Andrés Iniesta</ion-label>
+            <ion-radio (click)="_wc10('userAnswers')" value="Andres Iniesta"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Arjen Robben</ion-label>
+            <ion-radio (click)="_wc10('userAnswers')" value="Arjen Robben" ></ion-radio>
+          </ion-item>
+        </ion-list>
+      
+      </ion-list>
+    </div>
+
+
+      
+  <!--=======================================================================
+  ============================================================================-->
+
+  <div [ngSwitch]="Trivia">
+      <ion-list *ngSwitchCase="'PC'">
+
+          <ion-list radio-group [(ngModel)]="pc1">
+              <b>1.</b><u>What is the meaning of the acronym <span><b>CPU</b></span>?</u>
+            <ion-item>
+              <ion-label>Creepy Pointed Unit</ion-label>
+              <ion-radio (click)="_pc1('userAnswers')" value="Creepy Pointed Unit"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Central Processing Unit</ion-label>
+              <ion-radio (click)="_pc1('userAnswers')" value="Central Processing Unit"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Centric Processing Unit</ion-label>
+              <ion-radio (click)="_pc1('userAnswers')" value="Centric Processing Unit" ></ion-radio>
+            </ion-item>
+            </ion-list>
+          
+            <ion-list radio-group [(ngModel)]="pc2">
+              <b>2.</b><u>What is recognized as the <span><b>main circuit board</b></span> in a computer?</u>
+            <ion-item>
+              <ion-label>The power supply unit</ion-label>
+              <ion-radio (click)="_pc2('userAnswers')" value="The power supply unit"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>Central Processing Unit</ion-label>
+              <ion-radio (click)="_pc2('userAnswers')" value="Central Processing Unit"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>The motherboard</ion-label>
+              <ion-radio (click)="_pc2('userAnswers')" value="The motherboard" ></ion-radio>
+            </ion-item>
+          </ion-list>
+          
+          <ion-list radio-group [(ngModel)]="pc3">
+            <b>3.</b><u>A MicroSoft Word document has an <span><b>extension</b></span> of</u> ___ ?
+          <ion-item>
+            <ion-label>.doc</ion-label>
+            <ion-radio (click)="_pc3('userAnswers')" value=".doc"></ion-radio>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>.xls</ion-label>
+            <ion-radio (click)="_pc3('userAnswers')" value=".xls"></ion-radio>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>.exe</ion-label>
+            <ion-radio (click)="_pc3('userAnswers')" value=".exe" ></ion-radio>
+          </ion-item>
+          </ion-list>
+          
+      </ion-list>
+  </div>    
+
+  
+<!--=======================================================================
+  ============================================================================-->
+
+  <div [ngSwitch]="Trivia">
+      <ion-list *ngSwitchCase="'Math'">
+
+          <ion-list radio-group [(ngModel)]="m1">
+              <b>1.</b><u>Math test scores: <span><b>98, 87, 82, 95, 93, 81, 100.</b></span> What is the average</u>?
+            <ion-item>
+              <ion-label>81</ion-label>
+              <ion-radio (click)="_m1('userAnswers')" value="81"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>91</ion-label>
+              <ion-radio (click)="_m1('userAnswers')" value="91"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>97</ion-label>
+              <ion-radio (click)="_m1('userAnswers')" value="97" ></ion-radio>
+            </ion-item>
+            </ion-list>
+          
+            <ion-list radio-group [(ngModel)]="m2">
+              <b>2.</b><u>Solve this. <span><b>((32 x 8) + 104 - 27)</b></span></u>
+            <ion-item>
+              <ion-label>333</ion-label>
+              <ion-radio (click)="_m2('userAnswers')" value="333"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>450</ion-label>
+              <ion-radio (click)="_m2('userAnswers')" value="450"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>144</ion-label>
+              <ion-radio (click)="_m2('userAnswers')" value="144" ></ion-radio>
+            </ion-item>
+          </ion-list>
+          
+          <ion-list radio-group [(ngModel)]="m3">
+            <b>3.</b><u>What is the degree of a <span><b>triangle</b></span> </u>?
+          <ion-item>
+            <ion-label>360</ion-label>
+            <ion-radio (click)="_m3('userAnswers')" value="360"></ion-radio>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>90</ion-label>
+            <ion-radio (click)="_m3('userAnswers')" value="90"></ion-radio>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label>180</ion-label>
+            <ion-radio (click)="_m3('userAnswers')" value="180" ></ion-radio>
+          </ion-item>
+          </ion-list>
+          
+      </ion-list>
+  </div> 
+
+</div>
+
+  <div class="resutls" *ngIf= "display == 1" text-center>
+    <p><u>Your answers are as follows:</u></p>
+  </div>
+  <table>
+    <tr><th>Your Answer</th>
+    <th>Correct Answer</th>
+    </tr>
+
+    <tr>
+      <td>1.{{wc98}}</td><td><u>France</u></td>
+    </tr>
+    <tr><td>2.{{wc14}}</td><td><u>Brazil</u></td></tr>
+    <tr><td>3.{{wc10}}</td><td><u>Andres Iniesta</u></td></tr>
+    <tr><td>4.{{pc1}}</td><td><u>Central Processing Unit</u></td></tr>
+    <tr><td>5.{{pc2}}</td><td><u>The motherboard</u></td></tr>
+    <tr><td>6.{{pc3}}</td><td><u>.doc</u></td></tr>
+    <tr><td>7.{{m1}}</td><td><u>91</u></td></tr>
+    <tr><td>8.{{m2}}</td><td><u>333</u></td></tr>
+    <tr><td>9.{{m3}}</td><td><u>180</u></td></tr>
+   
+  </table>
+  <div text-center>
+  <h4>You scored: {{count}} points. </h4>
+    </div>
+  
+    <button ion-button full color="secondary" (click)="StartQ()">START QUIZ</button>
+    <div class="btn">
+        <button ion-button full color="primary" (click)="Display()">Results</button>
+    </div>
 </ion-content>
